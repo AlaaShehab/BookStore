@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="520.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStore.UserCartController">
+   <children>
+      <ScrollPane layoutY="128.0" prefHeight="275.0" prefWidth="690.0">
+         <content>
+            <VBox fx:id="vbox" alignment="CENTER" prefHeight="250.0" prefWidth="665.0" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="110.0" layoutY="427.0" text="Total price" />
+      <Button layoutX="418.0" layoutY="422.0" mnemonicParsing="false" onAction="#backHandler" text="Checkout" />
+   </children>
+</AnchorPane>
