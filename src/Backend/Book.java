@@ -10,6 +10,18 @@ public class Book {
     private int noOfCopies;
     private int threshold;
 
+    public Book () {
+
+    }
+
+    public Book (String title, int ISBN, String publisherName, double price, int quantity) {
+        this.title = title;
+        this.ISBN = ISBN;
+        this.publisherName = publisherName;
+        this.price = price;
+        noOfCopies = quantity;
+    }
+
     public int getISBN() {
         return ISBN;
     }

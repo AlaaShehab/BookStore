@@ -1,5 +1,6 @@
 package BookStore;
 
+import Backend.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SignInController implements Initializable {
+    private static User user;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -20,6 +22,7 @@ public class SignInController implements Initializable {
     @FXML
     private void signInHandler (ActionEvent event) throws Exception{
         //Todo check if user is in the db and return this user
+        //TODO set this.user to the returned user
 
         Parent root = FXMLLoader.load(getClass().getResource("View/UserCart.fxml"));
         Scene scene = new Scene(root);
@@ -34,5 +37,9 @@ public class SignInController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
+    }
+
+    public User getUser () {
+        return user;
     }
 }
