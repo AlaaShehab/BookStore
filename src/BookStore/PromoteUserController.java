@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
 
 public class PromoteUserController implements Initializable {
 
-    @FXML private TextField usernamePromote;
     @FXML private TextField emailPromote;
     @FXML private Button cancelPromoteBtn;
 
@@ -26,8 +25,7 @@ public class PromoteUserController implements Initializable {
     }
     @FXML
     private void promoteUserHandler (ActionEvent event) throws Exception{
-        //TODO SQL check that username and email exists in db
-
+        //TODO SQL check that email exists in db
         /*if yes then return this user and update its manager to true and save it
           update user set manager = true where username = usernamePromote.getText() and
           email = emailPromote

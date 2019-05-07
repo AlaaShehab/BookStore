@@ -51,6 +51,7 @@ public class UserActivitiesController implements Initializable {
         }
         SignUpController ucontroller = fxmlLoader.getController();
         user = ucontroller.getUser();
+        //disable some of user functions if not manager
 
     }
 

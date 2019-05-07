@@ -21,7 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpController implements Initializable {
-    private static User user;
+    private static User user = new User();
 
     @FXML private TextField firstName;
     @FXML private TextField lastName;
@@ -37,6 +37,7 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         validUser = false;
     }
     @FXML
@@ -51,6 +52,8 @@ public class SignUpController implements Initializable {
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.setScene(scene);
             app_stage.show();
+        } else {
+            //TODO show error msg
         }
     }
     @FXML
@@ -71,59 +74,60 @@ public class SignUpController implements Initializable {
             validUser = false;
             return;
         }
-        user.setFirstName(firstName.getText());
-        user.setLastName(lastName.getText());
-
-        //TODO SQL to check that username and email is unique
-
+        user.setFirstName((String)firstName.getText());
+        user.setLastName((String)lastName.getText());
         user.setUsername(username.getText());
-
-
         if (!validateEmaill()) {
             validUser = false;
             return;
         }
-        user.setEmail(email.getText());
+        user.setEmail((String)email.getText());
 
         if (!validateMobileNo()) {
             validUser = false;
             return;
         }
-        user.setPhoneNumber(phone.getText());
+        user.setPhoneNumber((String)phone.getText());
 
-        if (password.getText() != cpassword.getText() || password.getText().isEmpty()) {
+        //TODO wrong check don't knwo why
+
+        if (!password.getText().equals(cpassword.getText()) || password.getText().isEmpty()) {
             validUser = false;
             return;
         }
-        user.setPassword(password.getText());
+
+        user.setPassword((String)password.getText());
 
         if (address.getText().isEmpty()) {
             validUser = false;
             return;
         }
-        user.setShippingAddress(address.getText());
+        user.setShippingAddress((String)address.getText());
         user.setManager(manager.isSelected());
+        validUser = true;
     }
     private boolean validName (TextField name) {
         Pattern p = Pattern.compile("[a-zA-Z]+");
-        Matcher m = p.matcher(name.getText());
-        if(m.find() && m.group().equals(name.getText())){
+        Matcher m = p.matcher((String)name.getText());
+        if(m.find() && m.group().equals((String)name.getText())){
             return true;
         }
         return false;
     }
     private boolean validateEmaill(){
         Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
-        Matcher m = p.matcher(email.getText());
-        if(m.find() && m.group().equals(email.getText())){
+        Matcher m = p.matcher((String)email.getText());
+        if(m.find() && m.group().equals((String)email.getText())){
             return true;
         }
         return false;
     }
     private boolean validateMobileNo(){
-        Pattern p = Pattern.compile("(01)[0-3][0-9]{7}");
-        Matcher m = p.matcher(phone.getText());
-        if(m.find() && m.group().equals(phone.getText())){
+        //TODO edit this pattern
+
+        Pattern p = Pattern.compile("(01)[0-3][0-9]{8}");
+        Matcher m = p.matcher((String)phone.getText());
+        if(m.find() && m.group().equals((String)phone.getText())){
             return true;
         }
         return false;

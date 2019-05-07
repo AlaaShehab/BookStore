@@ -6,12 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="242.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStore.PromoteUserController">
+<AnchorPane prefHeight="202.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStore.PromoteUserController">
    <children>
-      <TextField fx:id="usernamePromote" layoutX="34.0" layoutY="79.0" promptText="Enter Username" />
-      <TextField fx:id="emailPromote" layoutX="244.0" layoutY="79.0" promptText="Enter Email" />
-      <Button fx:id="promoteBtn" layoutX="320.0" layoutY="153.0" mnemonicParsing="false" onAction="#promoteUserHandler" text="Promote User" />
-      <Button fx:id="cancelPromoteBtn" layoutX="244.0" layoutY="153.0" mnemonicParsing="false" onAction="#closeWindowHandler" text="Cancel" />
+      <TextField fx:id="emailPromote" focusTraversable="false" layoutX="78.0" layoutY="46.0" promptText="Enter Email" />
+      <Button fx:id="promoteBtn" layoutX="172.0" layoutY="121.0" mnemonicParsing="false" onAction="#promoteUserHandler" text="Promote User" />
+      <Button fx:id="cancelPromoteBtn" layoutX="57.0" layoutY="121.0" mnemonicParsing="false" onAction="#closeWindowHandler" text="Cancel" />
    </children>
 </AnchorPane>
