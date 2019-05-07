@@ -4,18 +4,9 @@ import java.util.List;
 
 public class User {
 
-    private int userID;
     private String password;
     private String firstName;
     private String lastName;
-    private String email, phoneNumber, shippingAddress;
-    private boolean isManager;
-
-    private List<OrderItem> cart;
-
-    public List<OrderItem> getCart() {
-        return cart;
-    }
 
     public int getUserID() {
         return userID;
@@ -23,6 +14,26 @@ public class User {
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+
+    private int userID;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private String username;
+    private String email, phoneNumber, shippingAddress;
+    private boolean isManager;
+
+    private List<OrderItem> cart;
+
+    public List<OrderItem> getCart() {
+        return cart;
     }
 
     public String getPassword() {

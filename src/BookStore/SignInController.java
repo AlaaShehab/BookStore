@@ -24,7 +24,7 @@ public class SignInController implements Initializable {
         //Todo check if user is in the db and return this user
         //TODO set this.user to the returned user
 
-        Parent root = FXMLLoader.load(getClass().getResource("View/UserCart.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/UserActivities.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);

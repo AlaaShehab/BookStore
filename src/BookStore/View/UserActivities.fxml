@@ -6,9 +6,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="BookStore.UserActivitiesController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookStore.UserActivitiesController">
+   <children>
+      <MenuBar fx:id="menu" prefHeight="32.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="User">
+            <items>
+              <MenuItem fx:id="editMI" mnemonicParsing="false" onAction="#editProfileHanlder" text="Edit Profile" />
+                  <MenuItem fx:id="promoteMI" mnemonicParsing="false" onAction="#promotUserHandler" text="Promote User" />
+                  <MenuItem fx:id="logoutMI" mnemonicParsing="false" onAction="#logoutHandler" text="Logout" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Book">
+            <items>
+              <MenuItem fx:id="addBMI" mnemonicParsing="false" onAction="#addBookHanlder" text="Add Book" />
+                  <MenuItem fx:id="modifyMI" mnemonicParsing="false" onAction="#modifyBookHandler" text="Modify Book" />
+                  <MenuItem fx:id="orderMI" mnemonicParsing="false" onAction="#PlaceOrderHandler" text="Place Order" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cart">
+            <items>
+              <MenuItem fx:id="cartMI" mnemonicParsing="false" onAction="#CartHandler" text="Manage Cart" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Reports">
+              <items>
+                <MenuItem fx:id="totalSalesMI" mnemonicParsing="false" onAction="#totalSalesHanlder" text="Total Sales" />
+                  <MenuItem fx:id="topCustomerMI" mnemonicParsing="false" onAction="#topCustomerHandler" text="Top 5 Customers" />
+                  <MenuItem fx:id="topBookMI" mnemonicParsing="false" onAction="#topBookHandler" text="Top 10 books" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" />
+        </menus>
+      </MenuBar>
+      <TextField fx:id="ISBN" layoutX="26.0" layoutY="85.0" promptText="Book ISBN" />
+      <TextField fx:id="publisherName" layoutX="26.0" layoutY="143.0" promptText="Publisher Name" />
+      <TextField fx:id="publicationYear" layoutX="262.0" layoutY="149.0" promptText="Publication Year" />
+      <TextField fx:id="category" layoutX="26.0" layoutY="199.0" promptText="Book Category" />
+      <TextField fx:id="title" layoutX="262.0" layoutY="85.0" promptText="Book Title" />
+      <TextField fx:id="author" layoutX="262.0" layoutY="199.0" promptText="Book Author" />
+      <Button fx:id="searchBtn" layoutX="26.0" layoutY="284.0" mnemonicParsing="false" onAction="#SearchBookHandler" text="Serach Book" />
+   </children>
 </AnchorPane>
