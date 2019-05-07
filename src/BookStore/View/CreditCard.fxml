@@ -11,9 +11,9 @@
       <Label layoutX="106.0" layoutY="129.0" text="Creditcard number" />
       <Label layoutX="106.0" layoutY="194.0" text="Security number" />
       <Label layoutX="106.0" layoutY="255.0" text="Expiration date" />
-      <TextField layoutX="251.0" layoutY="122.0" />
-      <TextField layoutX="251.0" layoutY="187.0" />
-      <TextField layoutX="251.0" layoutY="248.0" />
+      <TextField fx:id="credircardNo" layoutX="251.0" layoutY="122.0" />
+      <TextField fx:id="securityNo" layoutX="251.0" layoutY="187.0" />
+      <TextField fx:id="expDate" layoutX="251.0" layoutY="248.0" />
       <Button fx:id="closeBtn" layoutX="420.0" layoutY="332.0" mnemonicParsing="false" onAction="#closeWindowHandler" text="Cancel" />
       <Button fx:id="verifyBtn" layoutX="503.0" layoutY="332.0" mnemonicParsing="false" onAction="#verifyHanlder" text="Verify" />
       <Label layoutX="106.0" layoutY="52.0" text="Please Enter your creditcard details" />

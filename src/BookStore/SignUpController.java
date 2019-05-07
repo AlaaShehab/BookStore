@@ -34,11 +34,13 @@ public class SignUpController implements Initializable {
     @FXML private CheckBox manager;
 
     private boolean validUser;
+    private UserVerification verification;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         validUser = false;
+        verification = new UserVerification();
     }
     @FXML
     private void signUpHandler (ActionEvent event) throws Exception {
@@ -70,66 +72,21 @@ public class SignUpController implements Initializable {
     }
 
     public void setUser () {
-        if (!validName(firstName) || !validName(lastName)) {
+        if (!verification.validName(firstName) || !verification.validName(lastName)
+            || !verification.validateEmaill(email) || !verification.validateMobileNo(phone)
+            || !password.getText().equals(cpassword.getText()) || password.getText().isEmpty()) {
             validUser = false;
             return;
         }
         user.setFirstName((String)firstName.getText());
         user.setLastName((String)lastName.getText());
         user.setUsername(username.getText());
-        if (!validateEmaill()) {
-            validUser = false;
-            return;
-        }
         user.setEmail((String)email.getText());
-
-        if (!validateMobileNo()) {
-            validUser = false;
-            return;
-        }
         user.setPhoneNumber((String)phone.getText());
-
-        //TODO wrong check don't knwo why
-
-        if (!password.getText().equals(cpassword.getText()) || password.getText().isEmpty()) {
-            validUser = false;
-            return;
-        }
-
         user.setPassword((String)password.getText());
-
-        if (address.getText().isEmpty()) {
-            validUser = false;
-            return;
-        }
         user.setShippingAddress((String)address.getText());
         user.setManager(manager.isSelected());
         validUser = true;
     }
-    private boolean validName (TextField name) {
-        Pattern p = Pattern.compile("[a-zA-Z]+");
-        Matcher m = p.matcher((String)name.getText());
-        if(m.find() && m.group().equals((String)name.getText())){
-            return true;
-        }
-        return false;
-    }
-    private boolean validateEmaill(){
-        Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
-        Matcher m = p.matcher((String)email.getText());
-        if(m.find() && m.group().equals((String)email.getText())){
-            return true;
-        }
-        return false;
-    }
-    private boolean validateMobileNo(){
-        //TODO edit this pattern
 
-        Pattern p = Pattern.compile("(01)[0-3][0-9]{8}");
-        Matcher m = p.matcher((String)phone.getText());
-        if(m.find() && m.group().equals((String)phone.getText())){
-            return true;
-        }
-        return false;
-    }
 }

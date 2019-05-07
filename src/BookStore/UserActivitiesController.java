@@ -100,12 +100,7 @@ public class UserActivitiesController implements Initializable {
     }
 
     @FXML
-    private void addBookHanlder (ActionEvent event) throws Exception{
-
-    }
-
-    @FXML
-    private void modifyBookHandler (ActionEvent event) throws Exception{
+    private void addModiftyBookHanlder (ActionEvent event) throws Exception{
 
     }
 

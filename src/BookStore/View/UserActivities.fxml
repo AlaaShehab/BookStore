@@ -19,8 +19,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Book">
             <items>
-              <MenuItem fx:id="addBMI" mnemonicParsing="false" onAction="#addBookHanlder" text="Add Book" />
-                  <MenuItem fx:id="modifyMI" mnemonicParsing="false" onAction="#modifyBookHandler" text="Modify Book" />
+              <MenuItem fx:id="addBMI" mnemonicParsing="false" onAction="#addModiftyBookHanlder" text="Add Book" />
+                  <MenuItem fx:id="modifyMI" mnemonicParsing="false" onAction="#addModiftyBookHanlder" text="Modify Book" />
                   <MenuItem fx:id="orderMI" mnemonicParsing="false" onAction="#PlaceOrderHandler" text="Place Order" />
                   <MenuItem fx:id="confirmOrder" mnemonicParsing="false" onAction="#confirmOrderHandler" text="Confirm Order" />
             </items>
@@ -41,11 +41,11 @@
         </menus>
       </MenuBar>
       <TextField fx:id="ISBN" focusTraversable="false" layoutX="26.0" layoutY="85.0" promptText="Book ISBN" />
-      <TextField fx:id="publisherName" layoutX="26.0" layoutY="143.0" promptText="Publisher Name" />
-      <TextField fx:id="publicationYear" layoutX="262.0" layoutY="149.0" promptText="Publication Year" />
-      <TextField fx:id="category" layoutX="26.0" layoutY="199.0" promptText="Book Category" />
-      <TextField fx:id="title" layoutX="262.0" layoutY="85.0" promptText="Book Title" />
-      <TextField fx:id="author" layoutX="262.0" layoutY="199.0" promptText="Book Author" />
+      <TextField fx:id="publisherName" focusTraversable="false" layoutX="26.0" layoutY="143.0" promptText="Publisher Name" />
+      <TextField fx:id="publicationYear" focusTraversable="false" layoutX="262.0" layoutY="149.0" promptText="Publication Year" />
+      <TextField fx:id="category" focusTraversable="false" layoutX="26.0" layoutY="199.0" promptText="Book Category" />
+      <TextField fx:id="title" focusTraversable="false" layoutX="262.0" layoutY="85.0" promptText="Book Title" />
+      <TextField fx:id="author" focusTraversable="false" layoutX="262.0" layoutY="199.0" promptText="Book Author" />
       <Button fx:id="searchBtn" layoutX="26.0" layoutY="284.0" mnemonicParsing="false" onAction="#SearchBookHandler" text="Serach Book" />
    </children>
 </AnchorPane>

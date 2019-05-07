@@ -1,5 +1,8 @@
 package Backend;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
 
     private int ISBN;
@@ -10,8 +13,13 @@ public class Book {
     private int noOfCopies;
     private int threshold;
 
-    public Book () {
 
+    private List<String> authors;
+    private List<String> categories;
+
+    public Book () {
+        authors = new ArrayList<>();
+        categories = new ArrayList<>();
     }
 
     public Book (String title, int ISBN, String publisherName, double price, int quantity) {
@@ -20,6 +28,22 @@ public class Book {
         this.publisherName = publisherName;
         this.price = price;
         noOfCopies = quantity;
+    }
+
+    public void addAuthor (String author) {
+        authors.add(author);
+    }
+
+    public List<String> getAuthors () {
+        return authors;
+    }
+
+    public void addCategory (String category) {
+        categories.add(category);
+    }
+
+    public List<String> getCategories () {
+        return categories;
     }
 
     public int getISBN() {

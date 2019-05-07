@@ -24,6 +24,8 @@ public class EditProfileController implements Initializable {
     private UserActivitiesController controller;
     private FXMLLoader loader;
 
+    private UserVerification verification;
+
     @FXML private TextField firstName;
     @FXML private TextField lastName;
     @FXML private TextField password;
@@ -37,6 +39,7 @@ public class EditProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        verification = new UserVerification();
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(
                 "view/UserActivities.fxml"));
@@ -72,6 +75,12 @@ public class EditProfileController implements Initializable {
 
     @FXML
     private void EditProfileHandler (ActionEvent event) throws Exception{
+        boolean validUser = false;
+        if (!verification.validName(firstName) || !verification.validName(lastName)
+                || !verification.validateEmaill(email) || !verification.validateMobileNo(phone)) {
+            validUser = false;
+            return;
+        }
         user.setFirstName(firstName.getText());
         user.setLastName(lastName.getText());
         user.setPassword(password.getText());
@@ -80,8 +89,13 @@ public class EditProfileController implements Initializable {
         user.setShippingAddress(address.getText());
         user.setEmail(email.getText());
 
-        //TODO call backend to enter user
-        controller.setUser(user);
-        closeWindowHandler(event);
+        if (validUser) {
+            //TODO call backend to edit user
+            controller.setUser(user);
+            closeWindowHandler(event);
+        } else {
+            //TODO show error
+        }
+
     }
 }
