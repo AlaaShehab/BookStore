@@ -13,13 +13,18 @@ public class Book {
     private int noOfCopies;
     private int threshold;
 
-
     private List<String> authors;
     private List<String> categories;
+
+    //for my use
+    private String authorStr;
+    private String categoryStr;
 
     public Book () {
         authors = new ArrayList<>();
         categories = new ArrayList<>();
+        authorStr = "";
+        categoryStr = "";
     }
 
     public Book (String title, int ISBN, String publisherName, double price, int quantity) {
@@ -28,6 +33,11 @@ public class Book {
         this.publisherName = publisherName;
         this.price = price;
         noOfCopies = quantity;
+
+        authors = new ArrayList<>();
+        categories = new ArrayList<>();
+        authorStr = "";
+        categoryStr = "";
     }
 
     public void addAuthor (String author) {
@@ -100,6 +110,27 @@ public class Book {
 
     public void setISBN(int ISBN) {
         this.ISBN = ISBN;
+    }
+
+    public String getAuthorStr () {
+
+        for (int i = 0; i < authors.size(); i++) {
+            authorStr += authors.get(i);
+            if (i != authors.size() - 1) {
+                authorStr += "-";
+            }
+        }
+        return authorStr;
+    }
+
+    public String getCategoryStr () {
+        for (int i = 0; i < categories.size(); i++) {
+            categoryStr += categories.get(i);
+            if (i != categories.size() - 1) {
+                categoryStr += "-";
+            }
+        }
+        return categoryStr;
     }
 
 }

@@ -44,9 +44,9 @@ public class UserCartController implements Initializable {
     @FXML private TableColumn pname;
     @FXML private TableColumn quantity;
 
-    @FXML Button removeBtn;
+    @FXML private Button removeBtn;
 
-    @FXML Label totalCartPrice;
+    @FXML private Label totalCartPrice;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,7 +59,7 @@ public class UserCartController implements Initializable {
         removeBtn.setOnAction(new DeleteButtonListener());
 
         //this is just for testing
-        dummyTrial();
+      //  dummyTrial();
         refresh ();
     }
 
@@ -118,7 +118,7 @@ public class UserCartController implements Initializable {
 
     @FXML
     private void backHandler (ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("View/HomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/UserActivities.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
